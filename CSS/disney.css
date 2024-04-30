@@ -11,3 +11,9 @@ h2 {
 body {
   margin: 20px 10px;
 }
+.time {
+  background-color: palevioletred;
+ margin: 1px;
+  line-height: 1.2; /* 行間を1.2倍に設定 */
+  max-width: 300px; /* 行の最大幅を200pxに設定 */
+}
