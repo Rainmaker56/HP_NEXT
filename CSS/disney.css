@@ -16,3 +16,9 @@ body {
   line-height: 1.2; /* 行間を1.2倍に設定 */
   max-width: 300px; /* 行の最大幅を200pxに設定 */
 }
+a {
+  color: blue; /* 青文字に設定 */
+  text-decoration: underline; /* 下線を引く */
+
+}
+}
