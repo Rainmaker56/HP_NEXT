@@ -77,4 +77,11 @@ h3 {
     width: 100%;
     
   }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffe135;
+    margin-bottom: 10px;
+  }
 }
