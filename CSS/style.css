@@ -68,7 +68,7 @@ h3 {
   text-align: left;
   line-height: 1.5;
 }
-@media screen and (max-width:767px){
+@media screen and (max-width:767px){/* スマホの時のサイズ */
   .row{
     flex-wrap: wrap;
     gap: 5px;
