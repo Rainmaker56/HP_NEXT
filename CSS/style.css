@@ -84,4 +84,9 @@ h3 {
     color: #ffe135;
     margin-bottom: 10px;
   }
+  .thumbnail {
+    width: 150px; /* サムネイルの幅を指定 */
+    height: auto; /* 高さを自動調整 */
+    margin: 5px; /* サムネイル間の余白を指定 */
+  }
 }
