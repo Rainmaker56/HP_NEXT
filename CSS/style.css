@@ -71,7 +71,7 @@ h3 {
 @media screen and (max-width:767px){
   .row{
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
   }
   .col{
     width: 50%;
