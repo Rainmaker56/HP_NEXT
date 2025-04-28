@@ -71,18 +71,11 @@ h3 {
 @media screen and (max-width:767px){/* スマホの時のサイズ */
   .row{
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
   }
   .col{
-    width: 50%;
+    width: 100%;
     
-  }
-  h1 {
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    color: #ffe135;
-    margin-bottom: 10px;
   }
   .thumbnail {
     width: 150px; /* サムネイルの幅を指定 */
