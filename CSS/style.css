@@ -82,4 +82,10 @@ h3 {
     height: auto; /* 高さを自動調整 */
     margin: 5px; /* サムネイル間の余白を指定 */
   }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #29ab87;
+    margin-bottom: 10px;
+  }
 }
