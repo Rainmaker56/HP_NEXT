@@ -41,6 +41,21 @@ body {
   height: auto; /* 高さを自動調整 */
   margin: 5px; /* サムネイル間の余白を指定 */
 }
+@media only screen and (max-width:767px){/* スマホの時のサイズ */
+  .row{
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .col{
+    width: 100%;
+    
+  }
+  .thumbnail {
+    width: 150px; /* サムネイルの幅を指定 */
+    height: auto; /* 高さを自動調整 */
+    margin: 5px; /* サムネイル間の余白を指定 */
+  }
+}
 /* .movie{
   display: flex;
   flex-wrap: wrap;
