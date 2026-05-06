@@ -1,72 +1,287 @@
-a {
-  text-decoration: none; /* リンクのアンダーバーを消す */
-  color: black;
-   font-family: "ヒラギノ角ゴシック", "Hiragino Kaku Gothic Pro", sans-serif;
-}
-html{
-  margin: 10px;
+/* ===========================
+   ムービーライブラリ - モダンテーマ
+   =========================== */
+
+/* ----- リセット & ベース ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.header{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "ヒラギノ角ゴシック", "Hiragino Kaku Gothic Pro",
+               "Yu Gothic", "游ゴシック", sans-serif;
+  background: #f0f0f8;
+  color: #1a1a2e;
+  padding-top: 72px;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----- ヘッダー ----- */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
-  margin: 0;
-  width: 95%;
-  background-color: whitesmoke;
-  position: fixed;
-  top:0;
-  z-index: 100; /* ヘッダーを最前面に配置 */
-}
-body {
-  margin: 10px;
-  padding: 0;
-  padding-top: 100px;
-  background-color: whitesmoke;
+  padding: 0 24px;
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5f0;
+  box-shadow: 0 1px 8px rgba(88, 86, 214, 0.06);
 }
 
-.nav{
+.header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.04em;
+}
+
+.header h2::before {
+  content: "▶ ";
+  color: #5856d6;
+  font-size: 14px;
+}
+
+/* ----- ナビゲーション ----- */
+.nav {
   margin-left: auto;
 }
-.top-menu{
+
+.top-menu {
   display: flex;
-  margin-left: auto;
-}
-.menu-item{
-  font-size: 25px;
-  color:black;
-  margin-right: 15px;
-}
-.thumbnail {
-  width: 250px; /* サムネイルの幅を指定 */
-  height: auto; /* 高さを自動調整 */
-  margin: 5px; /* サムネイル間の余白を指定 */
-}
-@media only screen and (max-width:767px){/* スマホの時のサイズ */
-  .row{
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .col{
-    width: 100%;
-    
-  }
-  .thumbnail {
-    width: 150px; /* サムネイルの幅を指定 */
-    height: auto; /* 高さを自動調整 */
-    margin: 5px; /* サムネイル間の余白を指定 */
-  }
-}
-.menu-item{
-  font-size: 10px;
-
-}
-h2 {
-  font-size: 10px;
-
-}
-
-/* .movie{
-  display: flex;
+  gap: 2px;
+  list-style: none;
   flex-wrap: wrap;
+}
 
-} */
+.menu-item a {
+  display: block;
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  border-radius: 20px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.menu-item a:hover {
+  color: #5856d6;
+  background: rgba(88, 86, 214, 0.08);
+}
+
+/* ----- メインコンテンツ ----- */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 72px;
+}
+
+/* ----- 年別セクション ----- */
+.year-section {
+  margin-bottom: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e5f0;
+}
+
+.year-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eeeeF8;
+}
+
+.year-badge {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #5856d6;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+.year-count {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5856d6;
+  background: rgba(88, 86, 214, 0.1);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* ----- 動画グリッド ----- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 12px;
+}
+
+/* ----- 動画カード ----- */
+.video-card {
+  display: block;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eeeef5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(88, 86, 214, 0.15);
+  border-color: #c8c7f0;
+}
+
+/* サムネイル部分 */
+.thumb-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #e8e8f5;
+  aspect-ratio: 16 / 9;
+}
+
+.thumb-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .thumb-wrapper img {
+  transform: scale(1.06);
+}
+
+/* 再生ボタンオーバーレイ */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.2s;
+}
+
+.video-card:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(88, 86, 214, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.video-card:hover .play-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.play-btn::after {
+  content: '';
+  border-style: solid;
+  border-width: 7px 0 7px 14px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 3px;
+}
+
+/* カード情報部分 */
+.card-info {
+  padding: 8px 10px 11px;
+  background: #ffffff;
+}
+
+.card-date {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-bottom: 3px;
+}
+
+.card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ----- フッター ----- */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: #9ca3af;
+  border-top: 1px solid #e5e5f0;
+  background: #ffffff;
+}
+
+/* ----- レスポンシブ（スマホ対応）----- */
+@media (max-width: 767px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .header {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .header h2 {
+    font-size: 15px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .content {
+    padding: 16px 12px 48px;
+  }
+
+  .year-section {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .year-badge {
+    font-size: 16px;
+    padding: 3px 12px;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .card-title {
+    font-size: 11px;
+  }
+}
